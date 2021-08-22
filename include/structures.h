@@ -10,11 +10,3 @@ typedef struct
   int destino;
   char mensagem[100];
 } message;
-
-// Estrutura de fila de entrada e saida de pacotes
-typedef struct _queue
-{
-  // 0: input messages; 1: output messages
-  char type;
-  message queue[10]
-} queue;
