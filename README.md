@@ -1,22 +1,22 @@
 # Router
 
-## Inf
-Por motivos de força maior, não foi possível configurar o arquivo CMake para esta etapa do projeto, mas estou fazendo minhas orações ao 
-nosso ateu homossexual Alan Turing para que na proxima entrega, tudo esteja funcionando do jeito que deve ser
+#### Informações
+
+Não foi possível implementar o envio de mensagens ainda, houveram alguns imprevistos no projeto e tive que mudar totalmente de uma hora pra outra. Imprevisto do tipo: estava fazendo totalmente errado.
+Foi inicializado o socket de cada roteador e iniciado a implementação do sender e do receiver, assim como o terminal com as opções que estão planejadas.
+
 #### Compilação
 
-Para a compilação do programa, primeiro deve-se copiar o código abaixo
+Para a compilação do programa, execute o seguinte comando no seu terminal
 
-```sh
-git clone https://github.com/Igorronsoni/Router.git
-cd Router
-rm -rf build && mkdir build && cd build && gcc -c ../implementation/util.c && gcc -c ../src/router.c && gcc -c ../implementation/terminal.c &&  gcc -o Router router.o terminal.o util.o -lm
+```
+sh compila.sh
 ```
 
 #### Execução
 
-Para a execução, copie e cole o código no seu terminal
+Para a execução, digite o id do roteador requirido
 
 ```
-./Router
+cd build && ./Router <id>
 ```
