@@ -7,8 +7,10 @@
 #include "../include/global.h"
 #include "../include/read_file.h"
 #include "../include/receiver.h"
+#include "../include/sender.h"
 
 pthread_t sender_thread, receiver_thread;
+sem_t sender_sema;
 
 Roteador main_router;
 Roteador router_vizinho[MAX_VIZINHOS];
@@ -19,8 +21,9 @@ int socket_descriptor;
 
 // Mensagens
 Queue_message received_messages;
+Queue_message sender_messages;
 bool queue_receiver_message_full = false;
-pthread_mutex_t receiver_queue_mutex = PTHREAD_MUTEX_INITIALIZER;
+pthread_mutex_t receiver_queue_mutex = PTHREAD_MUTEX_INITIALIZER, send_mutex = PTHREAD_MUTEX_INITIALIZER;
 
 int main(int argc, char *argv[])
 {
@@ -66,7 +69,8 @@ int main(int argc, char *argv[])
 
   // Threads
   pthread_create(&receiver_thread, NULL, receiver, NULL);
-  // pthread_create(&sender_thread, NULL, sender, NULL);
+  pthread_create(&sender_thread, NULL, sender, NULL);
+  
   terminal();
 
   //terminate threads

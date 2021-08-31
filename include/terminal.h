@@ -7,5 +7,6 @@
 
 #include "util.h"
 #include "global.h"
+#include "configs.h"
 
 void terminal();

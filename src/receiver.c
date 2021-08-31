@@ -1,20 +1,18 @@
-#include <stdio.h>
-
 #include "../include/receiver.h"
 
 //listens to incoming messages
 void *receiver(void *args)
 {
-    Message buf;
+    Message buff;
     struct sockaddr_in si_other;
     int recv_len, slen = sizeof(si_other);
 
     for (;;)
     {
-        memset(&buf, 0, sizeof(buf));
+        memset(&buff, 0, sizeof(buff));
 
         //try to receive some data, this is a blocking call
-        if ((recv_len = recvfrom(socket_descriptor, &buf, sizeof(buf), 0, (struct sockaddr *)&si_other, &slen)) == -1)
+        if ((recv_len = recvfrom(socket_descriptor, &buff, sizeof(buff), 0, (struct sockaddr *)&si_other, &slen)) == -1)
         {
             perror("Receiving socket");
             exit(1);
@@ -24,7 +22,7 @@ void *receiver(void *args)
         //add item to packet_handler's queue
         if (!queue_receiver_message_full)
         {
-            received_messages.queue[received_messages.index_write] = &buff;
+            received_messages.queue[received_messages.index_write] = buff;
             if (received_messages.index_write == MAX_QUEUE_MESSAGES - 1)
                 received_messages.index_write = 0;
             else

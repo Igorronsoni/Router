@@ -15,7 +15,7 @@ int socket_descriptor;
 
 // Mensagens
 extern Queue_message sender_messages;
-extern Queue_message receiver_message;
+extern Queue_message received_messages;
 extern bool queue_receiver_message_full;
 
 // Vizinhos

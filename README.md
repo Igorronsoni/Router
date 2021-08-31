@@ -10,13 +10,20 @@ Foi inicializado o socket de cada roteador e iniciado a implementação do sende
 Para a compilação do programa, execute o seguinte comando no seu terminal
 
 ```
-sh compila.sh
+./compila.sh && cd build
 ```
 
+#### Antes de Executar
+
+Se não estiver dentro da pasta build quando for executar, acesse a pasta com
+
+```
+cd build
+```
 #### Execução
 
-Para a execução, digite o id do roteador requirido
+Para a execução, digite o id do roteador requirido.
 
 ```
-cd build && ./Router <id>
+./Router <id>
 ```

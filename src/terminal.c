@@ -16,11 +16,10 @@ void sender_message()
   }
   char message;
   printf("Message: ");
-  scanf("%s",&message);
+  scanf("%s", &message);
 
   Message mensagem;
   mensagem.origem = main_router.id;
-  mensagem.mensagem = message;
 }
 // Mensagens recebidas
 void receiver_messages()
